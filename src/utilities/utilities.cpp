@@ -2,10 +2,13 @@
 *  Utilities Source Code File
 ***************************************/
 
+#define _SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING
+
 #include <cstdarg>
 #include <time.h>
 #include <fstream>
 #include <random>
+#include <experimental/filesystem>
 
 #include "utilities.hpp"
 
@@ -43,9 +46,7 @@ float Utilities::GetFloat(AMX* amx, cell* params, int offset)
 
 int Utilities::GenerateDirectories(const char* location)
 {
-	wchar_t* wc = new wchar_t[strlen(location) + 1];
-	mbstowcs(wc, location, strlen(location) + 1);
-	return _wmkdir(wc);
+	return (int)std::experimental::filesystem::create_directories(location);
 }
 
 void Utilities::prepareLogging(int log_lvl) 
