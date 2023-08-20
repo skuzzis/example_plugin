@@ -28,7 +28,6 @@ int Utilities::GetInteger(AMX* amx, cell* params, int offset)
 	
 	amx_GetAddr(amx, params[offset], &memory_addr);
 	int value = static_cast<int>(static_cast<cell>(*memory_addr));
-	delete[] memory_addr;
 
 	return value;
 }
@@ -39,7 +38,6 @@ float Utilities::GetFloat(AMX* amx, cell* params, int offset)
 
 	amx_GetAddr(amx, params[offset], &memory_addr);
 	float value = round(amx_ctof(*memory_addr) * 100) / 100;
-	delete[] memory_addr;
 
 	return value;
 }
