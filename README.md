@@ -1,4 +1,4 @@
-# SA:MP Example Plugin (C++11)
+# SA:MP Example Plugin (C++14)
 
 This is a SA:MP plugin starter kit project for developing plugins in C++.
 
